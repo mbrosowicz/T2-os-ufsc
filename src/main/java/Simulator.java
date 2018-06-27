@@ -7,6 +7,7 @@ public class Simulator {
     private static int nThreads0P;
     private static int nThreads1P;
     private static int nThreads2P;
+    private static Simulator simulator;
     private Random rand;
 
     public Simulator() {
@@ -41,5 +42,17 @@ public class Simulator {
         }
         return tid;
     }
+
+    public static Simulator getSimulator() {
+        if (simulator == null) {
+            simulator = new Simulator();
+        }
+        return simulator;
+    }
+
+    public static void setSimulator(Simulator Simulator) {
+        Simulator.simulator = Simulator;
+    }
+
 
 }
