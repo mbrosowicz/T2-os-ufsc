@@ -36,9 +36,11 @@ public class Simulator {
             case 1:
                 nThreads1P++;
                 tid += nThreads1P;
+                break;
             case 2:
                 nThreads2P++;
                 tid += nThreads2P;
+                break;
         }
         return tid;
     }
