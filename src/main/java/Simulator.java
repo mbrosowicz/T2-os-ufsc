@@ -18,11 +18,10 @@ public class Simulator {
     }
 
     public void generateThreads(int threadNumber) {
-        Citizen[] citizens = new Citizen[threadNumber];
-        for (int i = 0; i < citizens.length; i++) {
-            citizens[i] = new Citizen(generateRandom());
-            citizens[i].start();
-            System.out.println(citizens[i]);
+        TicketWindow[] ticketWindows = new TicketWindow[threadNumber];
+        for (int i = 0; i < ticketWindows.length; i++) {
+            ticketWindows[i] = new TicketWindow(i);
+            ticketWindows[i].start();
         }
     }
 
@@ -55,6 +54,11 @@ public class Simulator {
 
     public static void setSimulator(Simulator Simulator) {
         Simulator.simulator = Simulator;
+    }
+
+    public void startCitizen() {
+        Citizen citizen = new Citizen(generateRandom());
+        citizen.start();
     }
 
 
