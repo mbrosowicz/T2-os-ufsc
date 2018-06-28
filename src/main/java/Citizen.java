@@ -20,4 +20,11 @@ public class Citizen extends Thread {
     public void setTid(String tid) {
         this.tid = tid;
     }
+
+    @Override
+    public String toString() {
+        return "Citizen{" +
+                "tid='" + tid + '\'' +
+                '}';
+    }
 }

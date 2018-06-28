@@ -22,6 +22,7 @@ public class Simulator {
         for (int i = 0; i < citizens.length; i++) {
             citizens[i] = new Citizen(generateRandom());
             citizens[i].start();
+            System.out.println(citizens[i]);
         }
     }
 
@@ -42,7 +43,6 @@ public class Simulator {
                 tid += nThreads2P;
                 break;
         }
-        System.out.println("Valor do marreta " + tid);
         return tid;
     }
 
