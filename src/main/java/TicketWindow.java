@@ -10,7 +10,7 @@ public class TicketWindow extends Thread {
 
     @Override
     public void run() {
-
+        Simulator.getSimulator().removeCitizen();
     }
 
     public int getTid() {

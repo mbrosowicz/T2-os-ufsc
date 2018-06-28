@@ -7,7 +7,6 @@ public class CitizenCreator implements Runnable {
     @Override
     public void run() {
         Simulator.getSimulator().startCitizen();
-        System.out.println(Simulator.getSimulator().getFila());
     }
 
     public static CitizenCreator getCitizenCreator() {

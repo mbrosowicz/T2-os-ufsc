@@ -10,7 +10,7 @@ public class Citizen extends Thread {
 
     @Override
     public void run() {
-
+        Simulator.getSimulator().entraFila(this);
     }
 
     public String getTid() {

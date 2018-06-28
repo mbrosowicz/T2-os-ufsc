@@ -71,14 +71,24 @@ public class Simulator {
 
     public void startCitizen() {
         Citizen citizen = new Citizen(generateRandom());
+        citizen.start();
+    }
 
+    public void entraFila(Citizen citizen) {
         if (citizen.getTid().contains("0P")) {
             p0.getCitizens().add(citizen);
+
         } else if (citizen.getTid().contains("1P")) {
             p1.getCitizens().add(citizen);
+
         } else if (citizen.getTid().contains("2P")) {
             p2.getCitizens().add(citizen);
         }
-        citizen.start();
+    }
+
+    public synchronized void removeCitizen() {
+        for (int i = 0; i < fila.size(); i++) {
+            System.out.println("Prioridade: " + fila.get(i).getPrioridade() + " citizens->" + fila.get(i).getCitizens());
+        }
     }
 }
