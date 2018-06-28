@@ -9,13 +9,13 @@ public class Main {
     public static Scanner scanner = new Scanner(System.in);
 
 
-    public static void main(String [] args)
-    {
+    public static void main(String[] args) {
+        Simulator.getSimulator().generateThreads(6);
         ScheduledThreadPoolExecutor stpe = new ScheduledThreadPoolExecutor(30);
-        stpe.scheduleAtFixedRate(new CitizenCreator(), 0, 10, TimeUnit.SECONDS);
-        System.out.println("Digite um número: ");
-        int nThreads = scanner.nextInt();
-        Simulator.getSimulator().generateThreads(nThreads);
+        stpe.scheduleAtFixedRate(new CitizenCreator(), 0, 4, TimeUnit.SECONDS);
+//        System.out.println("Digite um número: ");
+//        int nThreads = scanner.nextInt();
+//        Simulator.getSimulator().generateThreads(nThreads);
     }
 
 }
