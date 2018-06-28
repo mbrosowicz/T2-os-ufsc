@@ -42,6 +42,7 @@ public class Simulator {
                 tid += nThreads2P;
                 break;
         }
+        System.out.println("Valor do marreta " + tid);
         return tid;
     }
 
