@@ -12,7 +12,7 @@ public class Main {
     public static void main(String[] args) {
         Simulator.getSimulator().generateThreads(6);
         ScheduledThreadPoolExecutor stpe = new ScheduledThreadPoolExecutor(30);
-        stpe.scheduleAtFixedRate(new CitizenCreator(), 0, 4, TimeUnit.SECONDS);
+        stpe.scheduleAtFixedRate(new CitizenCreator(), 0, 1, TimeUnit.SECONDS);
 //        System.out.println("Digite um número: ");
 //        int nThreads = scanner.nextInt();
 //        Simulator.getSimulator().generateThreads(nThreads);

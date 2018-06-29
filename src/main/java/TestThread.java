@@ -1,9 +1,9 @@
 package main.java;
 
 public class TestThread {
-    public static void main(String args[]) {
 
-        SaveKristo PD = new SaveKristo();
+    public static void main(String args[]) {
+        PrintDemo PD = new PrintDemo();
 
         ThreadDemo T1 = new ThreadDemo("Thread - 1 ", PD);
         ThreadDemo T2 = new ThreadDemo("Thread - 2 ", PD);

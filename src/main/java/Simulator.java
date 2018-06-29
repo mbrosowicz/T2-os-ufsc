@@ -84,6 +84,7 @@ public class Simulator {
         } else if (citizen.getTid().contains("2P")) {
             p2.getCitizens().add(citizen);
         }
+        System.out.println(fila);
     }
 
     public synchronized void removeCitizen() {
@@ -91,4 +92,5 @@ public class Simulator {
             System.out.println("Prioridade: " + fila.get(i).getPrioridade() + " citizens->" + fila.get(i).getCitizens());
         }
     }
+
 }
