@@ -11,7 +11,8 @@ public class Citizen extends Thread {
     @Override
     public void run() {
         Simulator.getSimulator().entraFila(this);
-        System.out.println("waiting");
+        notifyAll();
+        System.out.println("waiting-" + tid);
     }
 
     public String getTid() {

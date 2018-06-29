@@ -32,7 +32,6 @@ public class Prioridade {
     public String toString() {
         return "Prioridade{" +
                 "prioridade=" + prioridade +
-                ", citizens=" + citizens +
                 '}';
     }
 }

@@ -12,6 +12,7 @@ public class TicketWindow extends Thread {
     public void run() {
         Simulator.getSimulator().removeCitizen();
     }
+//    TODO - meter um while pra verificar se a lista ta vazia se tiver só dar um wait
 
     public int getTid() {
         return tid;

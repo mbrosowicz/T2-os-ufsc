@@ -84,12 +84,29 @@ public class Simulator {
         } else if (citizen.getTid().contains("2P")) {
             p2.getCitizens().add(citizen);
         }
-        System.out.println(fila);
     }
 
     public synchronized void removeCitizen() {
+   /*     for (int i = 0; i < fila.get(0).getCitizens().size(); i++) {
+            System.out.println("Citizen removido -> " + fila.get(0).getCitizens().get(i).getTid());
+            if (i == 3) {
+                fila.get(i + 1).getCitizens().add(fila.get(1).getCitizens().get(0));
+            }
+            fila.get(0).getCitizens().remove(i);
+        }*/
+        int count = 0;
         for (int i = 0; i < fila.size(); i++) {
-            System.out.println("Prioridade: " + fila.get(i).getPrioridade() + " citizens->" + fila.get(i).getCitizens());
+            System.out.println("lista de prioridades" + fila.get(i));
+            for (int j = 0; j < fila.get(i).getCitizens().size(); j++) {
+                System.out.println(fila.get(i).getCitizens().get(j));
+//                count++;
+//                if (j == count) {
+//                    fila.get(i + 1).getCitizens().add(fila.get(1).getCitizens().get(0));
+//                    count = 0;
+//                }
+//                System.out.println("Removido-> " + fila.get(i).getCitizens().get(i));
+//                fila.get(i).getCitizens().remove(i);
+            }
         }
     }
 
