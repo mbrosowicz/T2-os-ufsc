@@ -74,7 +74,7 @@ public class Simulator {
         citizen.start();
     }
 
-    public void entraFila(Citizen citizen) {
+    public synchronized void entraFila(Citizen citizen) {
         if (citizen.getTid().contains("0P")) {
             p0.getCitizens().add(citizen);
 
