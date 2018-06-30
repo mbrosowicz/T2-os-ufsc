@@ -69,12 +69,22 @@ public class Simulator {
         return fila;
     }
 
-    public void startCitizen() {
+    public synchronized void startCitizen() {
         Citizen citizen = new Citizen(generateRandom());
         citizen.start();
+        acordaGeral();
     }
 
-    public void entraFila(Citizen citizen) {
+    public synchronized boolean filaVazia() {
+        for (int i = 0; i < fila.size(); i++) {
+            if (fila.get(i).getCitizens().size() >= 1) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public synchronized void entraFila(Citizen citizen) {
         if (citizen.getTid().contains("0P")) {
             p0.getCitizens().add(citizen);
 
@@ -86,26 +96,21 @@ public class Simulator {
         }
     }
 
+    public synchronized void acordaGeral() {
+        ticketWindows[0].run();
+    }
+
     public synchronized void removeCitizen() {
-   /*     for (int i = 0; i < fila.get(0).getCitizens().size(); i++) {
-            System.out.println("Citizen removido -> " + fila.get(0).getCitizens().get(i).getTid());
-            if (i == 3) {
-                fila.get(i + 1).getCitizens().add(fila.get(1).getCitizens().get(0));
-            }
-            fila.get(0).getCitizens().remove(i);
-        }*/
         int count = 0;
         for (int i = 0; i < fila.size(); i++) {
-            System.out.println("lista de prioridades" + fila.get(i));
             for (int j = 0; j < fila.get(i).getCitizens().size(); j++) {
-                System.out.println(fila.get(i).getCitizens().get(j));
 //                count++;
 //                if (j == count) {
 //                    fila.get(i + 1).getCitizens().add(fila.get(1).getCitizens().get(0));
 //                    count = 0;
 //                }
-//                System.out.println("Removido-> " + fila.get(i).getCitizens().get(i));
-//                fila.get(i).getCitizens().remove(i);
+                System.out.println("Removido-> " + fila.get(i).getCitizens().get(j));
+                fila.get(i).getCitizens().remove(j);
             }
         }
     }

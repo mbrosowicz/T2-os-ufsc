@@ -10,9 +10,17 @@ public class TicketWindow extends Thread {
 
     @Override
     public void run() {
-        Simulator.getSimulator().removeCitizen();
+        synchronized (this) {
+            while (Simulator.getSimulator().filaVazia()) {
+                    /*try {
+                        wait();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }*/
+            }
+            Simulator.getSimulator().removeCitizen();
+        }
     }
-//    TODO - meter um while pra verificar se a lista ta vazia se tiver só dar um wait
 
     public int getTid() {
         return tid;
