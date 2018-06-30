@@ -23,6 +23,14 @@ class GeradorCidadao extends Thread {
         rand = new Random();
     }
 
+    public synchronized void generateGuiches(int nThread, GeradorCidadao geradorCidadao) {
+        Guiche[] guiches = new Guiche[nThread];
+        for (int i = 0; i < guiches.length; i++) {
+            guiches[i] = new Guiche(geradorCidadao);
+            guiches[i].start();
+        }
+    }
+
     @Override
     public void run() {
         fila.add(p0 = new Prioridade(0));
@@ -96,13 +104,13 @@ class GeradorCidadao extends Thread {
             for (int j = 0; j < fila.get(i).getListaCidadao().size(); ) {
                 if (count == 3 && i != 2) {
                     if (!fila.get(i + 1).getListaCidadao().isEmpty()) {
-                        fila.get(i + 1).getListaCidadao().get(0).setNome(fila.get(i + 1).getListaCidadao().get(0).getNome()+"V");
-                        System.out.println("Mais velho-> " + fila.get(i + 1).getListaCidadao().get(0));
+                        fila.get(i + 1).getListaCidadao().get(0).setNome(fila.get(i + 1).getListaCidadao().get(0).getNome() + "V");
+                        System.out.println("Mais velho ---> " + fila.get(i + 1).getListaCidadao().get(0));
                         fila.get(i).getListaCidadao().add(fila.get(i + 1).getListaCidadao().get(0));
                         fila.get(i + 1).getListaCidadao().remove(0);
                     }
                 }
-                System.out.println("Removendo-> " + fila.get(i).getListaCidadao().get(j));
+                System.out.println("Removendo ---> " + fila.get(i).getListaCidadao().get(j));
                 fila.get(i).getListaCidadao().remove(j);
                 count++;
             }

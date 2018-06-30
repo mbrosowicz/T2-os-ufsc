@@ -1,7 +1,11 @@
 package main.java;
 
+import java.util.Scanner;
+
 public class Guiche extends Thread {
-    GeradorCidadao geradorCidadao;
+    static GeradorCidadao geradorCidadao;
+    static Scanner sc = new Scanner(System.in);
+
 
     Guiche(GeradorCidadao p) {
         geradorCidadao = p;
@@ -21,10 +25,11 @@ public class Guiche extends Thread {
     }
 
     public static void main(String args[]) {
-        GeradorCidadao geradorCidadao = new GeradorCidadao();
+        geradorCidadao = new GeradorCidadao();
         geradorCidadao.start();
-        new Guiche(geradorCidadao).start();
-        new Guiche(geradorCidadao).start();
+        System.out.println("Digite o número de guichês desejado: ");
+        int nThread = sc.nextInt();
+        geradorCidadao.generateGuiches(nThread, geradorCidadao);
     }
 }
 
