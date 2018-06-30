@@ -5,11 +5,11 @@ import java.util.List;
 
 public class Prioridade {
     private int prioridade;
-    private List<Citizen> citizens;
+    private List<Cidadao> listaCidadao;
 
     public Prioridade(int prioridade) {
         this.prioridade = prioridade;
-        this.citizens = new ArrayList<>();
+        this.listaCidadao = new ArrayList<>();
     }
 
     public int getPrioridade() {
@@ -20,18 +20,19 @@ public class Prioridade {
         this.prioridade = prioridade;
     }
 
-    public List<Citizen> getCitizens() {
-        return citizens;
+    public List<Cidadao> getListaCidadao() {
+        return listaCidadao;
     }
 
-    public void setCitizens(List<Citizen> citizens) {
-        this.citizens = citizens;
+    public void setListaCidadao(List<Cidadao> listaCidadao) {
+        this.listaCidadao = listaCidadao;
     }
 
     @Override
     public String toString() {
         return "Prioridade{" +
                 "prioridade=" + prioridade +
+                ", listaCidadao=" + listaCidadao +
                 '}';
     }
 }
