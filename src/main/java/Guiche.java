@@ -11,6 +11,7 @@ public class Guiche extends Thread {
     public void run() {
         try {
             while (true) {
+                System.out.println(getName() + " Está removendo");
                 geradorCidadao.removeDaFila();
                 sleep(5000);
             }
@@ -22,6 +23,7 @@ public class Guiche extends Thread {
     public static void main(String args[]) {
         GeradorCidadao geradorCidadao = new GeradorCidadao();
         geradorCidadao.start();
+        new Guiche(geradorCidadao).start();
         new Guiche(geradorCidadao).start();
     }
 }

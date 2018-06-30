@@ -24,6 +24,10 @@ public class Cidadao extends Thread {
         return nome;
     }
 
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
     @Override
     public String toString() {
         return "Cidadao{nome='" + nome + '\'' + '}';

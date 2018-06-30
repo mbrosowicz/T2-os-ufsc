@@ -39,7 +39,6 @@ class GeradorCidadao extends Thread {
 
     private String generateRandom() {
         int id = rand.nextInt(3);
-        System.out.println(id);
         String tid = id + "P";
         switch (id) {
             case 0:
@@ -63,7 +62,7 @@ class GeradorCidadao extends Thread {
             wait();
         }
         Cidadao cidadao = new Cidadao(generateRandom());
-        System.out.println(cidadao.getNome());
+        System.out.println("Cidadao: " + cidadao.getNome());
 
         cidadao.start();
         if (cidadao.getNome().contains("0P")) {
@@ -92,11 +91,22 @@ class GeradorCidadao extends Thread {
         while (verificaFilaVazia()) {
             wait();
         }
+        int count = 0;
         for (int i = 0; i < fila.size(); i++) {
             for (int j = 0; j < fila.get(i).getListaCidadao().size(); ) {
+                if (count == 3 && i != 2) {
+                    if (fila.get(i + 1).getListaCidadao().size() > 0) {
+                        fila.get(i + 1).getListaCidadao().get(0).setNome(fila.get(i + 1).getListaCidadao().get(0).getNome()+"V");
+                        System.out.println("Mais velho-> " + fila.get(i + 1).getListaCidadao().get(0));
+                        fila.get(i).getListaCidadao().add(fila.get(i + 1).getListaCidadao().get(0));
+                        fila.get(i + 1).getListaCidadao().remove(0);
+                    }
+                }
                 System.out.println("Removendo-> " + fila.get(i).getListaCidadao().get(j));
                 fila.get(i).getListaCidadao().remove(j);
+                count++;
             }
+            count = 0;
         }
     }
 
