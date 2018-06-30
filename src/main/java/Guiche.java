@@ -12,8 +12,8 @@ public class Guiche extends Thread {
         try {
             while (true) {
                 System.out.println(getName() + " Está removendo");
-                geradorCidadao.removeDaFila();
                 sleep(5000);
+                geradorCidadao.removeDaFila();
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
