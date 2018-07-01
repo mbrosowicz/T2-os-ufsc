@@ -25,10 +25,10 @@ public class Guiche extends Thread {
     }
 
     public static void main(String args[]) {
-        geradorCidadao = new GeradorCidadao();
-        geradorCidadao.start();
         System.out.println("Digite o número de guichês desejado: ");
         int nThread = sc.nextInt();
+        geradorCidadao = new GeradorCidadao();
+        geradorCidadao.start();
         geradorCidadao.generateGuiches(nThread, geradorCidadao);
     }
 }
